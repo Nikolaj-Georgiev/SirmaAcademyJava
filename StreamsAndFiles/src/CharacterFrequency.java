@@ -9,7 +9,6 @@ public class CharacterFrequency {
 
         String inputPath = "D:\\SIRMA\\SIRMA\\Java\\input.txt";
 
-        // Using a Map to store the frequency of each character
         Map<Character, Integer> charFrequencyMap = new LinkedHashMap<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(inputPath))) {
