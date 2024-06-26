@@ -13,7 +13,7 @@ public abstract class AbstractItem implements Item, Categorizable, Breakable, Pe
 
     @Override
     public boolean isBroken() {
-        return false;
+        return broken;
     }
 
     @Override
