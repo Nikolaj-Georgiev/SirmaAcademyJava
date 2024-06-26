@@ -1,10 +1,14 @@
 package Item;
 
 public interface Item {
-    public String getName();
-    public void setName(String name);
-    public String getDescription();
-    public void setDescription(String description);
-    public double calculateValue(int quantity);
+    String getName();
+
+    void setName(String name);
+
+    String getDescription();
+
+    void setDescription(String description);
+
+    double calculateValue(int quantity);
 
 }
