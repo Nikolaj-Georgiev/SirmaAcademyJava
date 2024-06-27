@@ -2,7 +2,9 @@ package Inventory;
 
 import Item.AbstractItem;
 
-public abstract class InventoryItem extends AbstractItem {
+import java.io.Serializable;
+
+public abstract class InventoryItem extends AbstractItem implements Serializable {
     private String id;
     private int quantity;
 
