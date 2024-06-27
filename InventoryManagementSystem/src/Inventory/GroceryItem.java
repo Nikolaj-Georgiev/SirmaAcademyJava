@@ -6,23 +6,39 @@ public class GroceryItem extends InventoryItem {
     int expDays;
 
     public GroceryItem() {
-        super();
     }
 
     public GroceryItem(String itemName) {
-        super(itemName);
+        setName(itemName);
     }
 
     public GroceryItem(String itemName, int quantity) {
-        super(itemName, quantity);
+        setName(itemName);
+        setQuantity(quantity);
     }
 
     public GroceryItem(String id, int quantity, String name, String description, double price, String category, boolean perishable, boolean broken) {
-        super(id, quantity, name, description, price, category, perishable, broken);
+        setId(id);
+        setQuantity(quantity);
+        setName(name);
+        setDescription(description);
+        setPrice(price);
+        setCategory(category);
+        setPerishable(perishable);
+        setBroken(broken);
+        setInitialDate(LocalDate.now());
     }
 
     public GroceryItem(String id, int quantity, String name, String description, double price, String category, boolean perishable, boolean broken, int expDays) {
-        super(id, quantity, name, description, price, category, perishable, broken);
+        setId(id);
+        setQuantity(quantity);
+        setName(name);
+        setDescription(description);
+        setPrice(price);
+        setCategory(category);
+        setPerishable(perishable);
+        setBroken(broken);
+        setInitialDate(LocalDate.now());
         this.expDays = expDays;
     }
 
@@ -32,11 +48,6 @@ public class GroceryItem extends InventoryItem {
 
     public void setExpDays(int expDays) {
         this.expDays = expDays;
-    }
-
-    @Override
-    public void setInitialDate(LocalDate initialDate) {
-        this.initialDate = initialDate;
     }
 
     @Override

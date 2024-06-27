@@ -77,7 +77,11 @@ public abstract class AbstractItem implements Item, Categorizable, Breakable, Pe
     }
 
     @Override
-    public abstract void setInitialDate(LocalDate initialDate);
+    public void setInitialDate(LocalDate initialDate) {
+        this.initialDate = initialDate;
+    }
+
+    ;
 
     @Override
     public abstract LocalDate calculateExpiryDate(int days);

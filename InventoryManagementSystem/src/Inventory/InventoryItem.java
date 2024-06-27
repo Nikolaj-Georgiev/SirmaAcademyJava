@@ -2,39 +2,9 @@ package Inventory;
 
 import Item.AbstractItem;
 
-import java.time.LocalDate;
-
 public abstract class InventoryItem extends AbstractItem {
     protected String id;
     protected int quantity;
-
-
-    public InventoryItem(String id, int quantity, String name, String description, double price, String category, boolean perishable, boolean broken) {
-        this.id = id;
-        this.quantity = quantity;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.category = category;
-        this.perishable = perishable;
-        this.initialDate = LocalDate.now();
-    }
-    
-    public InventoryItem() {
-    }
-
-    public InventoryItem(String id) {
-        this.id = id;
-    }
-
-    public InventoryItem(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public InventoryItem(String itemName, int quantity) {
-        this.quantity = quantity;
-        this.name = itemName;
-    }
 
     public int getQuantity() {
         return quantity;
@@ -61,13 +31,6 @@ public abstract class InventoryItem extends AbstractItem {
     }
 
     @Override
-    public double calculateValue(int quantity) {
-        return 0;
-    }
+    public abstract double calculateValue(int quantity);
 
-
-    @Override
-    public void setInitialDate(LocalDate initialDate) {
-
-    }
 }
