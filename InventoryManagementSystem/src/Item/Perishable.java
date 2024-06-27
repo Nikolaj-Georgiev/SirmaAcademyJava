@@ -3,7 +3,7 @@ package Item;
 import java.time.LocalDate;
 
 public interface Perishable {
-    boolean isPerishable();
+    boolean isPerished();
 
     void setPerishable(boolean perishable);
 
