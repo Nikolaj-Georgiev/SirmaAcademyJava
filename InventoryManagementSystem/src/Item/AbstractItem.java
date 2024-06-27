@@ -66,14 +66,10 @@ public abstract class AbstractItem implements Item, Categorizable, Breakable, Pe
     }
 
     @Override
-    public double calculateValue(int quantity) {
-        return this.price * quantity;
-    }
+    public abstract double calculateValue(int quantity);
 
     @Override
-    public boolean isPerishable() {
-        return perishable;
-    }
+    public abstract boolean isPerished();
 
     @Override
     public void setPerishable(boolean perishable) {
@@ -81,17 +77,10 @@ public abstract class AbstractItem implements Item, Categorizable, Breakable, Pe
     }
 
     @Override
-    public void setInitialDate(LocalDate initialDate) {
-        this.initialDate = initialDate;
-    }
+    public abstract void setInitialDate(LocalDate initialDate);
 
     @Override
-    public LocalDate calculateExpiryDate(int days) {
-        if (initialDate == null) {
-            throw new IllegalStateException("Initial date not set");
-        }
-        return initialDate.plusDays(days);
-    }
+    public abstract LocalDate calculateExpiryDate(int days);
 
     @Override
     public void displayPerishable() {
