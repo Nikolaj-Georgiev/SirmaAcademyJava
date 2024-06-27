@@ -3,13 +3,13 @@ package Item;
 import java.time.LocalDate;
 
 public abstract class AbstractItem implements Item, Categorizable, Breakable, Perishable, Sellable {
-    protected String name;
-    protected String description;
-    protected double price;
-    protected String category;
-    protected boolean perishable;
-    protected boolean broken;
-    protected LocalDate initialDate;
+    private String name;
+    private String description;
+    private double price;
+    private String category;
+    private boolean perishable;
+    private boolean broken;
+    private LocalDate initialDate;
 
     @Override
     public boolean isBroken() {
@@ -69,11 +69,17 @@ public abstract class AbstractItem implements Item, Categorizable, Breakable, Pe
     public abstract double calculateValue(int quantity);
 
     @Override
-    public abstract boolean isPerished();
+    public boolean isPerished() {
+        return this.perishable;
+    }
 
     @Override
     public void setPerishable(boolean perishable) {
         this.perishable = perishable;
+    }
+
+    public LocalDate getInitialDate() {
+        return initialDate;
     }
 
     @Override
@@ -81,10 +87,12 @@ public abstract class AbstractItem implements Item, Categorizable, Breakable, Pe
         this.initialDate = initialDate;
     }
 
-    ;
-
     @Override
-    public abstract LocalDate calculateExpiryDate(int days);
+    public LocalDate calculateExpiryDate(int days) {
+        return initialDate.plusDays(days);
+    }
+
+    ;
 
     @Override
     public void displayPerishable() {

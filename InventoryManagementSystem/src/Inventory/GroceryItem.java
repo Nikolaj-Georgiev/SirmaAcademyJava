@@ -3,7 +3,7 @@ package Inventory;
 import java.time.LocalDate;
 
 public class GroceryItem extends InventoryItem {
-    int expDays;
+    private int expDays;
 
     public GroceryItem() {
     }
@@ -17,7 +17,7 @@ public class GroceryItem extends InventoryItem {
         setQuantity(quantity);
     }
 
-    public GroceryItem(String id, int quantity, String name, String description, double price, String category, boolean perishable, boolean broken) {
+    public GroceryItem(String id, int quantity, String name, String description, double price, String category, boolean perishable) {
         setId(id);
         setQuantity(quantity);
         setName(name);
@@ -25,11 +25,10 @@ public class GroceryItem extends InventoryItem {
         setPrice(price);
         setCategory(category);
         setPerishable(perishable);
-        setBroken(broken);
         setInitialDate(LocalDate.now());
     }
 
-    public GroceryItem(String id, int quantity, String name, String description, double price, String category, boolean perishable, boolean broken, int expDays) {
+    public GroceryItem(String id, int quantity, String name, String description, double price, String category, boolean perishable, int expDays) {
         setId(id);
         setQuantity(quantity);
         setName(name);
@@ -37,7 +36,6 @@ public class GroceryItem extends InventoryItem {
         setPrice(price);
         setCategory(category);
         setPerishable(perishable);
-        setBroken(broken);
         setInitialDate(LocalDate.now());
         this.expDays = expDays;
     }
@@ -52,7 +50,7 @@ public class GroceryItem extends InventoryItem {
 
     @Override
     public LocalDate calculateExpiryDate(int days) {
-        return initialDate.plusDays(days);
+        return getInitialDate().plusDays(days);
     }
 
     @Override
@@ -64,7 +62,7 @@ public class GroceryItem extends InventoryItem {
     @Override
     public double calculateValue(int quantity) {
         if (!isPerished()) {
-            return this.price * this.quantity;
+            return this.getPrice() * this.getQuantity();
         } else {
             throw new IllegalStateException("The product has perished due to expiry date!");
         }

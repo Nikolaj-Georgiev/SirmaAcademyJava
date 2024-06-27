@@ -3,8 +3,8 @@ package Inventory;
 import Item.AbstractItem;
 
 public abstract class InventoryItem extends AbstractItem {
-    protected String id;
-    protected int quantity;
+    private String id;
+    private int quantity;
 
     public int getQuantity() {
         return quantity;
