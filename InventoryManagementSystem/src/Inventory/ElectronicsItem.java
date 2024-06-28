@@ -1,11 +1,8 @@
 package Inventory;
 
-import java.io.Serial;
 import java.time.LocalDate;
 
 public class ElectronicsItem extends InventoryItem {
-    @Serial
-    private static final long serialVersionUID = 1L;
 
     public ElectronicsItem() {
         super();

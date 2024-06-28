@@ -2,13 +2,10 @@ package Inventory;
 
 import Item.AbstractItem;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.UUID;
 
 public abstract class InventoryItem extends AbstractItem implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
     private String id;
     private int quantity;
 
