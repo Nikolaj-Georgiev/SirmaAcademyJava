@@ -8,7 +8,7 @@ public abstract class AbstractItem implements Item, Categorizable, Breakable, Pe
     private double price;
     private String category;
     private boolean perishable;
-    private boolean broken;
+    private String broken;
     private LocalDate initialDate;
 
     public AbstractItem(String name, String description, double price, String category) {
@@ -18,24 +18,21 @@ public abstract class AbstractItem implements Item, Categorizable, Breakable, Pe
         this.category = category;
     }
 
+    public AbstractItem() {
+    }
+
     @Override
-    public boolean isBroken() {
+    public String getBroken() {
         return broken;
     }
 
     @Override
     public void setBroken(boolean b) {
         if (b) {
-            this.broken = true;
+            this.broken = "Broken";
+        } else {
+            this.broken = "Not Broken";
         }
-    }
-
-    @Override
-    public String getItemStatus() {
-        if (broken) {
-            return "Broken";
-        }
-        return "Not Broken";
     }
 
     @Override

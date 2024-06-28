@@ -7,5 +7,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="poi-5.2.3" level="project" />
+    <orderEntry type="library" name="poi-ooxml-5.2.3" level="project" />
+    <orderEntry type="library" name="commons-collections4-4.4" level="project" />
+    <orderEntry type="library" name="xmlbeans-5.1.1" level="project" />
   </component>
 </module>

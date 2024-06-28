@@ -1,9 +1,8 @@
 package Item;
 
 public interface Breakable {
-    boolean isBroken();
+
+    String getBroken();
 
     void setBroken(boolean b);
-
-    String getItemStatus();
 }

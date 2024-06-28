@@ -1,45 +1,24 @@
 package Inventory;
 
+import java.io.Serial;
 import java.time.LocalDate;
 
 public class FragileItem extends InventoryItem {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     public FragileItem() {
+        super();
     }
 
-    public FragileItem(String itemName) {
-        setName(itemName);
-    }
-
-    public FragileItem(String itemName, int quantity) {
-        setName(itemName);
-        setQuantity(quantity);
-    }
-
-    public FragileItem(String id, int quantity, String name, String description, double price, String category, boolean broken) {
-        setId(id);
-        setQuantity(quantity);
-        setName(name);
-        setDescription(description);
-        setPrice(price);
-        setCategory(category);
-        setBroken(broken);
-        setInitialDate(LocalDate.now());
-    }
-
-
-    @Override
-    public boolean isBroken() {
-        return super.isBroken();
-    }
-
-    public String getItemStatus() {
-        return super.getItemStatus();
+    public FragileItem(String name, String description, double price, String category, int quantity) {
+        super(name, description, price, category, quantity);
+        this.setInitialDate(LocalDate.now());
     }
 
     @Override
     public double calculateValue(int quantity) {
-        if (!isBroken()) {
+        if (!this.getBroken().equals("Broken")) {
             return this.getPrice() * this.getQuantity();
         } else {
             throw new IllegalStateException("The product is broken!");

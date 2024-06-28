@@ -8,6 +8,10 @@ public class GroceryItem extends InventoryItem {
     private static final long serialVersionUID = 1L;
     private int expDays;
 
+    public GroceryItem() {
+        super();
+    }
+
     public GroceryItem(String name, String description, double price, String category, int quantity, int expDays) {
         super(name, description, price, category, quantity);
         this.expDays = expDays;

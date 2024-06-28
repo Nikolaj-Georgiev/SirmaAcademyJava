@@ -1,4 +1,4 @@
-import FileInputOutpus.FileIO;
+import FileInputOutput.ExcelFileIO;
 import Inventory.ElectronicsItem;
 import Inventory.GroceryItem;
 import Inventory.InventoryItem;
@@ -11,16 +11,16 @@ public class Main {
     public static void main(String[] args) {
 
         List<InventoryItem> inventory = new ArrayList<>();
-        inventory.add(new GroceryItem("1", 10, "Milk", "Fresh milk", 2.99, "Grocery", true, 7));
-        inventory.add(new GroceryItem("2", 20, "Bread", "Freshly baked bread", 1.99, "Grocery", false, 3));
-        inventory.add(new ElectronicsItem("3", 5, "Laptop", "Gaming laptop", 999.99, "Electronics"));
+        inventory.add(new GroceryItem("Milk", "Fresh milk", 2.99, "Grocery", 7, 7));
+        inventory.add(new GroceryItem("Bread", "Freshly baked bread", 1.99, "Grocery", 3, 3));
+        inventory.add(new ElectronicsItem("Laptop", "Gaming laptop", 999.99, "Electronics", 2));
 
         try {
-            FileIO.saveInventory(inventory);
-            List<InventoryItem> loadedInventory = FileIO.loadInventory();
+            ExcelFileIO.saveInventory(inventory);
+            List<InventoryItem> loadedInventory = ExcelFileIO.loadInventory();
 
             for (InventoryItem item : loadedInventory) {
-                System.out.println(item.getId());
+                System.out.println(item.productDetails());
             }
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
