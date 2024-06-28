@@ -9,7 +9,8 @@ public class ExcelConstants {
     public static final int COL_PRICE = 4;
     public static final int COL_CATEGORY = 5;
     public static final int COL_QUANTITY = 6;
-    public static final int COL_EXP_DAYS = 7; // За GroceryItem
+    public static final int COL_INITIAL_DATE = 7;
+    public static final int COL_EXP_DAYS = 8; // За GroceryItem
 
     // могат да се добавят други константи за останалите класове, ако искаме да вкараме функционалност
 }
