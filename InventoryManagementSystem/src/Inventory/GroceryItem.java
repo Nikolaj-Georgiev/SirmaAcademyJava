@@ -1,44 +1,19 @@
 package Inventory;
 
+import java.io.Serial;
 import java.time.LocalDate;
 
 public class GroceryItem extends InventoryItem {
+    @Serial
+    private static final long serialVersionUID = 1L;
     private int expDays;
 
-    public GroceryItem() {
-    }
-
-    public GroceryItem(String itemName) {
-        setName(itemName);
-    }
-
-    public GroceryItem(String itemName, int quantity) {
-        setName(itemName);
-        setQuantity(quantity);
-    }
-
-    public GroceryItem(String id, int quantity, String name, String description, double price, String category, boolean perishable) {
-        setId(id);
-        setQuantity(quantity);
-        setName(name);
-        setDescription(description);
-        setPrice(price);
-        setCategory(category);
-        setPerishable(perishable);
-        setInitialDate(LocalDate.now());
-    }
-
-    public GroceryItem(String id, int quantity, String name, String description, double price, String category, boolean perishable, int expDays) {
-        setId(id);
-        setQuantity(quantity);
-        setName(name);
-        setDescription(description);
-        setPrice(price);
-        setCategory(category);
-        setPerishable(perishable);
-        setInitialDate(LocalDate.now());
+    public GroceryItem(String name, String description, double price, String category, int quantity, int expDays) {
+        super(name, description, price, category, quantity);
         this.expDays = expDays;
+        this.setInitialDate(LocalDate.now());
     }
+
 
     public int getExpDays() {
         return expDays;

@@ -2,11 +2,21 @@ package Inventory;
 
 import Item.AbstractItem;
 
+import java.io.Serial;
 import java.io.Serializable;
+import java.util.UUID;
 
 public abstract class InventoryItem extends AbstractItem implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     private String id;
     private int quantity;
+
+    public InventoryItem(String name, String description, double price, String category, int quantity) {
+        super(name, description, price, category);
+        this.id = UUID.randomUUID().toString();
+        this.quantity = quantity;
+    }
 
     public int getQuantity() {
         return quantity;
