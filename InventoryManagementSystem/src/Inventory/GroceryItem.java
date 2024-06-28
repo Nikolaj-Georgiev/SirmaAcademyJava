@@ -42,4 +42,9 @@ public class GroceryItem extends InventoryItem {
             throw new IllegalStateException("The product has perished due to expiry date!");
         }
     }
+
+    @Override
+    public String productDetails() {
+        return STR."\{super.productDetails()}, Expiry days: \{this.getExpDays()}.";
+    }
 }

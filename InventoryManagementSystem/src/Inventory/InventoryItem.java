@@ -45,4 +45,8 @@ public abstract class InventoryItem extends AbstractItem implements Serializable
     @Override
     public abstract double calculateValue(int quantity);
 
+    public String productDetails() {
+        return STR."Product details: Id: \{this.getId()}, InitialDate: \{this.getInitialDate()}, Name: \{this.getName()}, Description: \{this.getDescription()}, Price: \{this.getPrice()}, Category \{this.getCategory()}, Quantity: \{this.getQuantity()}";
+    }
+
 }
