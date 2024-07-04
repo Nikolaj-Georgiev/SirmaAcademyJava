@@ -70,7 +70,7 @@ public class ExcelFileIO {
             cell = row.createCell(COL_EXP_DAYS);
             cell.setCellValue(gItem.getExpDays());
         }
-//    ако има други специфични колони могат да се направят проверки и за тях
+//    I can add more checks if there are other specific colls
 
     }
 

@@ -1,7 +1,7 @@
 package FileInputOutput;
 
 public class ExcelConstants {
-    // Константи за колоните
+    // constants for the colls
     public static final int COL_CLASS_NAME = 0;
     public static final int COL_ID = 1;
     public static final int COL_NAME = 2;
@@ -12,5 +12,5 @@ public class ExcelConstants {
     public static final int COL_INITIAL_DATE = 7;
     public static final int COL_EXP_DAYS = 8; // За GroceryItem
 
-    // могат да се добавят други константи за останалите класове, ако искаме да вкараме функционалност
+    // I can add additional constants here for the other classes if I need additional functionality
 }
