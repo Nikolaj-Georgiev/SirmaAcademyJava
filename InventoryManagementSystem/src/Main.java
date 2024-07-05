@@ -1,20 +1,14 @@
-import Inventory.ElectronicsItem;
-import Inventory.GroceryItem;
-import Inventory.InventoryItem;
+import cli.InventoryCLI;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
-
-        List<InventoryItem> inventory = new ArrayList<>();
-        inventory.add(new GroceryItem("Milk", "Fresh milk", 2.99, "Grocery", 7, 7));
-        inventory.add(new GroceryItem("Bread", "Freshly baked bread", 1.99, "Grocery", 3, 3));
-        inventory.add(new ElectronicsItem("Laptop", "Gaming laptop", 999.99, "Electronics", 2));
-        for (InventoryItem item : inventory) {
-            System.out.println(item.productDetails());
+        InventoryCLI inventoryCLI = new InventoryCLI();
+        try {
+            inventoryCLI.run();
+        } catch (IOException e) {
+            System.out.println(STR."An error occurred: \{e.getMessage()}");
         }
-
     }
 }

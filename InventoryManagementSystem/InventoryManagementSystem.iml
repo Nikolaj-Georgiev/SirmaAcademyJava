@@ -7,9 +7,14 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="poi-5.2.3" level="project" />
-    <orderEntry type="library" name="poi-ooxml-5.2.3" level="project" />
+    <orderEntry type="library" name="poi-ooxml-schemas-4.1.2" level="project" />
+    <orderEntry type="library" name="commons-compress-1.26.2" level="project" />
+    <orderEntry type="library" name="commons-io-2.16.1" level="project" />
+    <orderEntry type="library" name="log4j-api-2.23.1" level="project" />
+    <orderEntry type="library" name="log4j-core-2.23.1" level="project" />
+    <orderEntry type="library" name="poi-5.3.0" level="project" />
+    <orderEntry type="library" name="poi-ooxml-5.3.0" level="project" />
+    <orderEntry type="library" name="xmlbeans-5.2.1" level="project" />
     <orderEntry type="library" name="commons-collections4-4.4" level="project" />
-    <orderEntry type="library" name="xmlbeans-5.1.1" level="project" />
   </component>
 </module>

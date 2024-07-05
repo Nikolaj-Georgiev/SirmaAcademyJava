@@ -1,4 +1,4 @@
-package FileInputOutput;
+package fileio;
 
 public class ExcelConstants {
     // constants for the colls

@@ -1,6 +1,6 @@
-package Inventory;
+package inventory;
 
-import Item.AbstractItem;
+import item.AbstractItem;
 
 import java.io.Serializable;
 import java.util.UUID;

@@ -1,34 +1,35 @@
-package FileInputOutput;
+package fileio;
 
-import Inventory.ElectronicsItem;
-import Inventory.FragileItem;
-import Inventory.GroceryItem;
-import Inventory.InventoryItem;
+import inventory.ElectronicsItem;
+import inventory.FragileItem;
+import inventory.GroceryItem;
+import inventory.InventoryItem;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+//import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+//import org.apache.poi.ss.usermodel.Sheet;
+//import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static FileInputOutput.ExcelConstants.*;
+import static fileio.ExcelConstants.*;
 
 public class ExcelFileIO {
     private static final String FILE_NAME = "inventory.xlsx";
 
     public static void saveInventory(List<InventoryItem> inventory) throws IOException {
-        Workbook workbook = new XSSFWorkbook();
-        Sheet sheet = workbook.createSheet("Inventory");
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        XSSFSheet sheet = workbook.createSheet("inventory");
 
         int rowNum = 0;
         for (InventoryItem item : inventory) {
-            Row row = sheet.createRow(rowNum++);
+            XSSFRow row = sheet.createRow(rowNum++);
 
             writeItem(item, row);
         }
@@ -40,7 +41,7 @@ public class ExcelFileIO {
         workbook.close();
     }
 
-    private static void writeItem(InventoryItem item, Row row) {
+    private static void writeItem(InventoryItem item, XSSFRow row) {
         Cell cell = row.createCell(COL_CLASS_NAME);
         cell.setCellValue(item.getClass().getSimpleName());
 
@@ -74,15 +75,15 @@ public class ExcelFileIO {
 
     }
 
-    public static List<InventoryItem> readInventory() throws IOException {
+    public static List<InventoryItem> loadInventory() throws IOException {
         List<InventoryItem> inventory = new ArrayList<>();
 
         try (FileInputStream fileIn = new FileInputStream(FILE_NAME)) {
-            Workbook workbook = new XSSFWorkbook(fileIn);
-            Sheet sheet = workbook.getSheet("Inventory");
+            XSSFWorkbook workbook = new XSSFWorkbook(fileIn);
+            XSSFSheet sheet = workbook.getSheet("inventory");
 
             for (Row row : sheet) {
-                InventoryItem item = readItem(row);
+                InventoryItem item = readItem((XSSFRow) row);
                 inventory.add(item);
             }
             workbook.close();
@@ -90,7 +91,7 @@ public class ExcelFileIO {
         return inventory;
     }
 
-    private static InventoryItem readItem(Row row) {
+    private static InventoryItem readItem(XSSFRow row) {
         String className = row.getCell(COL_CLASS_NAME).getStringCellValue();
         String id = row.getCell(COL_ID).getStringCellValue();
         String name = row.getCell(COL_NAME).getStringCellValue();
