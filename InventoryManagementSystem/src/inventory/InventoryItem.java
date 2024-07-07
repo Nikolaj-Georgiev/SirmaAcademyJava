@@ -19,6 +19,12 @@ public abstract class InventoryItem extends AbstractItem implements Serializable
         this.quantity = quantity;
     }
 
+    public InventoryItem(String id, String name, String description, double price, String category, int quantity) {
+        super(name, description, price, category);
+        this.id = id;
+        this.quantity = quantity;
+    }
+
 
     public int getQuantity() {
         return quantity;

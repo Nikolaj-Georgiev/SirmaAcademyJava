@@ -15,6 +15,12 @@ public class GroceryItem extends InventoryItem {
         this.setInitialDate(LocalDate.now());
     }
 
+    public GroceryItem(String id, String name, String description, double price, String category, int quantity, int expDays) {
+        super(id, name, description, price, category, quantity);
+        this.expDays = expDays;
+        this.setInitialDate(LocalDate.now());
+    }
+
 
     public int getExpDays() {
         return expDays;

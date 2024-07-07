@@ -1,6 +1,6 @@
 package inventory;
 
-import fileio.ExcelFileIO;
+import fileio.CsvFileIO;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,11 +37,11 @@ public class InventoryManager {
     }
 
     public void saveInventory() throws IOException {
-        ExcelFileIO.saveInventory(inventory);
+        CsvFileIO.saveInventory(inventory);
     }
 
     public void loadInventory() throws IOException {
-        inventory = ExcelFileIO.loadInventory();
+//        inventory = CsvFileIO.loadInventory();
     }
 }
 

@@ -13,6 +13,11 @@ public class ElectronicsItem extends InventoryItem {
         this.setInitialDate(LocalDate.now());
     }
 
+    public ElectronicsItem(String id, String name, String description, double price, String category, int quantity) {
+        super(id, name, description, price, category, quantity);
+        this.setInitialDate(LocalDate.now());
+    }
+
     @Override
     public double calculateValue(int quantity) {
         return this.getPrice() * this.getQuantity();

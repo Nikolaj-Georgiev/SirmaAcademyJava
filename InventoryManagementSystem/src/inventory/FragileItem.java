@@ -13,6 +13,11 @@ public class FragileItem extends InventoryItem {
         this.setInitialDate(LocalDate.now());
     }
 
+    public FragileItem(String id, String name, String description, double price, String category, int quantity) {
+        super(id, name, description, price, category, quantity);
+        this.setInitialDate(LocalDate.now());
+    }
+
     @Override
     public double calculateValue(int quantity) {
         if (!this.getBroken().equals("Broken")) {
