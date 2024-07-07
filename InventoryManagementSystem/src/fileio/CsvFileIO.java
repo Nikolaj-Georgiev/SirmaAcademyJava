@@ -46,15 +46,16 @@ public class CsvFileIO {
     public static List<InventoryItem> loadInventory() {
         List<InventoryItem> inventory = new ArrayList<InventoryItem>();
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_NAME))) {
-            String line = br.readLine();
-            line = br.readLine();
-            while (line != null) {
-
+            String line = br.readLine(); // skipping the header
+            while ((line = br.readLine()) != null) {
+                InventoryItem item = parseCsvLine(line);
+                inventory.add(item);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        return inventory;
     }
 
     private static InventoryItem parseCsvLine(String csv) {
