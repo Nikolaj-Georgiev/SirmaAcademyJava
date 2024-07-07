@@ -41,7 +41,7 @@ public class InventoryManager {
     }
 
     public void loadInventory() throws IOException {
-//        inventory = CsvFileIO.loadInventory();
+        inventory = CsvFileIO.loadInventory();
     }
 }
 

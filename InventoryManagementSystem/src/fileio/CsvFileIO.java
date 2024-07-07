@@ -66,7 +66,10 @@ public class CsvFileIO {
         double price = Double.parseDouble(values[3]);
         String category = values[4];
         int quantity = Integer.parseInt(values[5]);
-        int expDays = Integer.parseInt(values[6]);
+        int expDays = 0;
+        if (values.length > 6) {
+            expDays = Integer.parseInt(values[6]);
+        }
 
         if (category.equalsIgnoreCase("fragile")) {
             return new FragileItem(id, name, description, price, category, quantity);

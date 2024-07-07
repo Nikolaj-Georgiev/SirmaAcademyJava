@@ -121,7 +121,11 @@ public class InventoryCLI {
     private void displayItems() {
         List<InventoryItem> items = inventoryManager.getItems();
         for (InventoryItem item : items) {
-            System.out.println(item.productDetails());
+            if (item != null) {
+                System.out.println(item.productDetails());
+            } else {
+                System.out.println("Item cannot be categorized.");
+            }
         }
     }
 
