@@ -1,6 +1,6 @@
 # Inventory Management System
 
-This project is a comprehensive Inventory Management System for a small store. It manages various types of items,
+This project is a Inventory Management System for a small store. It manages various types of items,
 handles payments, and processes orders.
 
 ## Features

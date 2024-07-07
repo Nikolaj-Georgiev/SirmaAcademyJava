@@ -11,13 +11,43 @@ public class InventoryCLI {
     private final InventoryManager inventoryManager = new InventoryManager();
     private final Scanner scanner = new Scanner(System.in);
 
+    private static boolean isValidNumber(String input, String type) {
+        try {
+            if ("integer".equalsIgnoreCase(type)) {
+                Integer.parseInt(input);
+            } else if ("double".equalsIgnoreCase(type)) {
+                Double.parseDouble(input);
+            }
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    private static Number readValidNumber(Scanner scanner, String prompt, String type) {
+        String input;
+        while (true) {
+            System.out.print(prompt);
+            input = scanner.nextLine();
+            if (isValidNumber(input, type)) {
+                if ("integer".equalsIgnoreCase(type)) {
+                    return Integer.parseInt(input);
+                } else if ("double".equalsIgnoreCase(type)) {
+                    return Double.parseDouble(input);
+                }
+            } else {
+                System.out.println(STR."Invalid input. Please enter a valid \{type.equalsIgnoreCase("double") ? "real number" : "integer"}.");
+            }
+        }
+    }
+
+
     public void run() throws IOException {
         boolean exit = false;
 
         while (!exit) {
             showMenu();
             int choice = Integer.parseInt(scanner.nextLine());
-//            scanner.nextLine();  // Consume newline
 
             switch (choice) {
                 case 1:
@@ -81,19 +111,15 @@ public class InventoryCLI {
         System.out.print("Enter item description: ");
         String description = scanner.nextLine();
 
-        System.out.print("Enter item price: ");
-        String string = (scanner.nextLine()).replaceAll(",", ".");
-        double price = Double.parseDouble(string);
+        double price = readValidNumber(scanner, "Enter item price: ", "double").doubleValue();
 
-        System.out.print("Enter item quantity: ");
-        int quantity = Integer.parseInt(scanner.nextLine());
+        int quantity = readValidNumber(scanner, "Enter item quantity: ", "integer").intValue();
 
         InventoryItem item;
 
         switch (category.toLowerCase()) {
             case "grocery":
-                System.out.print("Enter expiry days: ");
-                int expDays = Integer.parseInt(scanner.nextLine());
+                int expDays = readValidNumber(scanner, "Enter expiry days: ", "integer").intValue();
                 item = new GroceryItem(name, description, price, category, quantity, expDays);
                 break;
             case "electronics":
