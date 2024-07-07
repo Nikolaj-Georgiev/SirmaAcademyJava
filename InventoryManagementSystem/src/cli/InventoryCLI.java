@@ -72,7 +72,7 @@ public class InventoryCLI {
     }
 
     private void addItem() {
-        System.out.print("Enter item category (Grocery, Electronics, Fragile): ");
+        System.out.print("Enter one of these item category -> (Grocery, Electronics, Fragile): ");
         String category = scanner.nextLine();
 
         System.out.print("Enter item name: ");
@@ -82,7 +82,8 @@ public class InventoryCLI {
         String description = scanner.nextLine();
 
         System.out.print("Enter item price: ");
-        double price = Double.parseDouble(scanner.nextLine());
+        String string = (scanner.nextLine()).replaceAll(",", ".");
+        double price = Double.parseDouble(string);
 
         System.out.print("Enter item quantity: ");
         int quantity = Integer.parseInt(scanner.nextLine());
