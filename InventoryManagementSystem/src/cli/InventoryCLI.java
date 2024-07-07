@@ -27,21 +27,24 @@ public class InventoryCLI {
                     removeItem();
                     break;
                 case 3:
-                    displayItems();
+                    displayIDAndNAme();
                     break;
                 case 4:
-                    categorizeItem();
+                    displayItems();
                     break;
                 case 5:
-                    placeOrder();
+                    categorizeItem();
                     break;
                 case 6:
-                    saveInventory();
+                    placeOrder();
                     break;
                 case 7:
-                    loadInventory();
+                    saveInventory();
                     break;
                 case 8:
+                    loadInventory();
+                    break;
+                case 9:
                     exit = true;
                     break;
                 default:
@@ -54,20 +57,23 @@ public class InventoryCLI {
 
     private void showMenu() {
         System.out.println("\nInventory Management System");
+        System.out.println();
         System.out.println("1. Add Item");
         System.out.println("2. Remove Item by ID");
-        System.out.println("3. Display Items");
-        System.out.println("4. Categorize Item");
-        System.out.println("5. Place Order");
-        System.out.println("6. Save Inventory");
-        System.out.println("7. Load Inventory");
-        System.out.println("8. Exit");
+        System.out.println("3. Display Items by ID and Name");
+        System.out.println("4. Display Items");
+        System.out.println("5. Categorize Item");
+        System.out.println("6. Place Order");
+        System.out.println("7. Save Inventory");
+        System.out.println("8. Load Inventory");
+        System.out.println("9. Exit");
+        System.out.println();
         System.out.print("Enter your choice: ");
     }
 
     private void addItem() {
-        System.out.print("Enter item type (Grocery, Electronics, Fragile): ");
-        String itemType = scanner.nextLine();
+        System.out.print("Enter item category (Grocery, Electronics, Fragile): ");
+        String category = scanner.nextLine();
 
         System.out.print("Enter item name: ");
         String name = scanner.nextLine();
@@ -78,15 +84,12 @@ public class InventoryCLI {
         System.out.print("Enter item price: ");
         double price = Double.parseDouble(scanner.nextLine());
 
-        System.out.print("Enter item category: ");
-        String category = scanner.nextLine();
-
         System.out.print("Enter item quantity: ");
         int quantity = Integer.parseInt(scanner.nextLine());
 
         InventoryItem item;
 
-        switch (itemType.toLowerCase()) {
+        switch (category.toLowerCase()) {
             case "grocery":
                 System.out.print("Enter expiry days: ");
                 int expDays = Integer.parseInt(scanner.nextLine());
@@ -118,13 +121,28 @@ public class InventoryCLI {
         }
     }
 
+    private void displayIDAndNAme() {
+        List<InventoryItem> items = inventoryManager.getItems();
+        if (items.isEmpty()) {
+            System.out.println("No items found.");
+        } else {
+            for (InventoryItem item : items) {
+                System.out.println(STR."ID: \{item.getId()}, Name: \{item.getName()}");
+            }
+        }
+    }
+
     private void displayItems() {
         List<InventoryItem> items = inventoryManager.getItems();
-        for (InventoryItem item : items) {
-            if (item != null) {
-                System.out.println(item.productDetails());
-            } else {
-                System.out.println("Item cannot be categorized.");
+        if (items.isEmpty()) {
+            System.out.println("No items found.");
+        } else {
+            for (InventoryItem item : items) {
+                if (item != null) {
+                    System.out.println(item.productDetails());
+                } else {
+                    System.out.println("Item cannot be categorized.");
+                }
             }
         }
     }
