@@ -1,12 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        Jar<Integer> jar = new Jar<>();
-        jar.add(1);
-        jar.add(12);
-        jar.add(3);
+        String[] strArr = ArrayCreator.create(String.class, 3, "Hello");
+        Integer[] intArr = ArrayCreator.create(1, 10);
+        System.out.println(strArr[0]);
+        System.out.println(intArr[0]);
 
-        System.out.println(jar.remove());
-        System.out.println(jar.remove());
-        System.out.println(jar.remove());
     }
 }
