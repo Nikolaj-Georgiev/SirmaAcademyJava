@@ -1,9 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        String[] strArr = ArrayCreator.create(String.class, 3, "Hello");
-        Integer[] intArr = ArrayCreator.create(1, 10);
-        System.out.println(strArr[0]);
-        System.out.println(intArr[0]);
+        String one = "Pesho";
+        String two = "Zoshoo";
+        GenericScale sc = new GenericScale(one, two);
+        System.out.println(sc.getHeavier());
 
     }
 }
